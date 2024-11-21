@@ -5,8 +5,8 @@ from datetime import datetime
 from functools import wraps
 
 app = Flask(__name__, template_folder='.')
-app.secret_key = 'your-secret-key-here'
-ADMIN_PASSWORD = 'sigmasigmaonthewall'
+app.secret_key = os.environ.get('SECRET_KEY')
+ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD')
 
 # Update database path to use Render's persistent storage
 DB_PATH = '/opt/render/project/data/confessions.db'
